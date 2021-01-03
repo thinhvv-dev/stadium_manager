@@ -29,7 +29,7 @@
             <div class="col-4">
                 <div class="card">
                     <div class="card-body">
-                        <form action="">
+                        <form class="filter_form" method="GET" action="">
                             <div class="row mb-3">
                                 <label for="startTime" class="col-sm-4 col-form-label">Start Date:</label>
                                 <div class="col-sm-8">
@@ -166,6 +166,17 @@
                 $("#startDate").attr("max", endDate);
             }
         });
+
+        $(".filter_form").submit(function () {
+            var startDate = $("#startDate").val();
+            var endDate = $("#endDate").val();
+            if (startDate || endDate) {
+                var params = "?start=" + startDate + "&end=" + endDate;
+                window.location.href = window.location.href.split('?')[0] + params;
+            } else {
+                window.location.reload();
+            }
+        })
     </script>
 </body>
 </html>

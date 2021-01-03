@@ -6,11 +6,13 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <header>
     <nav class="navbar navbar-dark bg-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="/home">Stadium Manager</a>
+            <% if (session.getAttribute("user") == null) { %>
             <ul class="nav justify-content-center">
                 <li class="nav-item">
                     <a class="nav-link" href="/login">Login</a>
@@ -19,6 +21,13 @@
                     <a class="nav-link" href="#">Sign Up</a>
                 </li>
             </ul>
+            <% } else { %>
+            <ul class="nav justify-content-center">
+                <li class="nav-item">
+                    <a class="nav-link" href="/logout">Logout</a>
+                </li>
+            </ul>
+            <% } %>
         </div>
     </nav>
     <div class="border">

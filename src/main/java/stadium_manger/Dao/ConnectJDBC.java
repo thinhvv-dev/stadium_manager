@@ -16,7 +16,7 @@ public class ConnectJDBC {
             Logger.getLogger(ConnectJDBC.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/stadium_manager?useSSL=false", "root", "root");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/stadium_manager?useSSL=false", "root", "vanthinh98");
         } catch (SQLException ex) {
             Logger.getLogger(ConnectJDBC.class.getName()).log(Level.SEVERE, null, ex);
         }
