@@ -1,4 +1,4 @@
-package stadium_manger.Controller;
+package stadium_manager.Controller;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

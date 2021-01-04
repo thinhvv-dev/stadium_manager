@@ -1,6 +1,6 @@
-package stadium_manger.Service;
+package stadium_manager.Service;
 
-import stadium_manger.Dao.UserDAO;
+import stadium_manager.Dao.UserDAO;
 
 import java.security.NoSuchAlgorithmException;
 

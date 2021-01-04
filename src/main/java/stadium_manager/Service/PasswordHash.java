@@ -1,6 +1,5 @@
-package stadium_manger.Service;
+package stadium_manager.Service;
 
-import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 

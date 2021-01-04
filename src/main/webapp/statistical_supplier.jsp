@@ -1,4 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -29,18 +30,18 @@
             <div class="col-4">
                 <div class="card">
                     <div class="card-body">
-                        <form class="filter_form" method="GET" action="">
+                        <form class="filter_form" method="GET" action="/statistical-supplier">
                             <div class="row mb-3">
                                 <label for="startTime" class="col-sm-4 col-form-label">Start Date:</label>
                                 <div class="col-sm-8">
-                                    <input type="date" class="form-control filter_date" id="startDate" placeholder="dd/mm/yyyy">
+                                    <input type="date" name="startDate" class="form-control filter_date" id="startDate" placeholder="dd/mm/yyyy">
                                 </div>
                                 
                             </div>
                             <div class="row mb-3">
                                 <label for="endTime" class="col-sm-4 col-form-label">End Date:</label>
                                 <div class="col-sm-8">
-                                    <input type="date" class="form-control filter_date" id="endDate" placeholder="dd/mm/yyyy">
+                                    <input type="date" name="endDate" class="form-control filter_date" id="endDate" placeholder="dd/mm/yyyy">
                                 </div>
                             </div>
                             <div class="text-center">
@@ -63,78 +64,15 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <c:forEach items="${supplierList}" var="supplier" varStatus="loop">
                         <tr>
-                            <th>00:00 - 02:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
+                            <th><c:out value="${supplier.get('code')}"/></th>
+                            <td><c:out value="${supplier.get('name')}"/></td>
+                            <td><c:out value="${supplier.get('total_quantity')}"/></td>
+                            <td><c:out value="${supplier.get('total_price')}"/></td>
                         </tr>
-                        <tr>
-                            <th scope="row">02:00 - 04:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">04:00 - 06:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">06:00 - 08:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">08:00 - 10:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">10:00 - 12:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">12:00 - 14:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">14:00 - 16:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">16:00 - 18:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">18:00 - 20:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">20:00 - 22:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">22:00 - 00:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                        </tr>
+                        </c:forEach>
+
                     </tbody>
                 </table>
               </div>
@@ -167,16 +105,16 @@
             }
         });
 
-        $(".filter_form").submit(function () {
-            var startDate = $("#startDate").val();
-            var endDate = $("#endDate").val();
-            if (startDate || endDate) {
-                var params = "?start=" + startDate + "&end=" + endDate;
-                window.location.href = window.location.href.split('?')[0] + params;
-            } else {
-                window.location.reload();
-            }
-        })
+        // $(".filter_form").submit(function () {
+        //     var startDate = $("#startDate").val();
+        //     var endDate = $("#endDate").val();
+        //     if (startDate || endDate) {
+        //         var params = "?start=" + startDate + "&end=" + endDate;
+        //         window.location.href = window.location.href.split('?')[0] + params;
+        //     } else {
+        //         window.location.reload();
+        //     }
+        // })
     </script>
 </body>
 </html>

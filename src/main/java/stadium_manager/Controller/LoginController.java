@@ -1,7 +1,7 @@
-package stadium_manger.Controller;
+package stadium_manager.Controller;
 
-import stadium_manger.Dao.UserDAO;
-import stadium_manger.Model.User;
+import stadium_manager.Dao.UserDAO;
+import stadium_manager.Model.User;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;

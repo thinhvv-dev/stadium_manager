@@ -1,6 +1,6 @@
-package stadium_manger.Controller;
+package stadium_manager.Controller;
 
-import stadium_manger.Model.User;
+import stadium_manager.Model.User;
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;

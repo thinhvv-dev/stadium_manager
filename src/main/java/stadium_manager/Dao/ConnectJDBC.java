@@ -1,4 +1,4 @@
-package stadium_manger.Dao;
+package stadium_manager.Dao;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -16,7 +16,7 @@ public class ConnectJDBC {
             Logger.getLogger(ConnectJDBC.class.getName()).log(Level.SEVERE, null, ex);
         }
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/stadium_manager?useSSL=false", "root", "vanthinh98");
+            conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/stadium_manager?useSSL=false", "root", "root");
         } catch (SQLException ex) {
             Logger.getLogger(ConnectJDBC.class.getName()).log(Level.SEVERE, null, ex);
         }

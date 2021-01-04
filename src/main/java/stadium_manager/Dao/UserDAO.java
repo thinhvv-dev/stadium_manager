@@ -1,7 +1,7 @@
-package stadium_manger.Dao;
+package stadium_manager.Dao;
 
-import stadium_manger.Model.User;
-import stadium_manger.Service.PasswordHash;
+import stadium_manager.Model.User;
+import stadium_manager.Service.PasswordHash;
 
 import java.security.NoSuchAlgorithmException;
 import java.sql.*;

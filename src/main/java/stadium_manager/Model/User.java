@@ -1,4 +1,4 @@
-package stadium_manger.Model;
+package stadium_manager.Model;
 
 public class User {
     private int ID;
