@@ -1,6 +1,7 @@
 package stadium_manager.Controller;
 
 import stadium_manager.Dao.SupplierAnalysisDAO;
+import stadium_manager.Model.User;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -19,9 +20,13 @@ public class StatisticalSupplierController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String startDate = req.getParameter("startDate");
         String endDate = req.getParameter("endDate");
+        User user = (User) req.getSession().getAttribute("user");
+        int userID = user.getID();
 
-        List<HashMap<String, String>> supplierList = SupplierAnalysisDAO.getByTime(startDate, endDate);
+        List<HashMap<String, String>> supplierList = SupplierAnalysisDAO.supplierByTime(startDate, endDate, userID);
         req.setAttribute("supplierList", supplierList);
+        req.setAttribute("startDate", startDate);
+        req.setAttribute("endDate", endDate);
 
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/statistical_supplier.jsp");
         requestDispatcher.forward(req, resp);

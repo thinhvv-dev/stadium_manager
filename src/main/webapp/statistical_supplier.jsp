@@ -34,14 +34,14 @@
                             <div class="row mb-3">
                                 <label for="startTime" class="col-sm-4 col-form-label">Start Date:</label>
                                 <div class="col-sm-8">
-                                    <input type="date" name="startDate" class="form-control filter_date" id="startDate" placeholder="dd/mm/yyyy">
+                                    <input type="date" name="startDate" class="form-control filter_date" id="startDate" value="${startDate}" placeholder="dd/mm/yyyy">
                                 </div>
                                 
                             </div>
                             <div class="row mb-3">
                                 <label for="endTime" class="col-sm-4 col-form-label">End Date:</label>
                                 <div class="col-sm-8">
-                                    <input type="date" name="endDate" class="form-control filter_date" id="endDate" placeholder="dd/mm/yyyy">
+                                    <input type="date" name="endDate" class="form-control filter_date" id="endDate" value="${endDate}" placeholder="dd/mm/yyyy">
                                 </div>
                             </div>
                             <div class="text-center">
@@ -65,7 +65,7 @@
                     </thead>
                     <tbody>
                         <c:forEach items="${supplierList}" var="supplier" varStatus="loop">
-                        <tr>
+                        <tr data-href="<c:out value="${supplier.get('id')}"/>">
                             <th><c:out value="${supplier.get('code')}"/></th>
                             <td><c:out value="${supplier.get('name')}"/></td>
                             <td><c:out value="${supplier.get('total_quantity')}"/></td>
@@ -86,7 +86,23 @@
     <%@include file="footer.jsp"%>
     <script>
         $("tbody tr").click(function() {
-            $(location).attr('href', 'statistical_import.jsp');
+            var $this = $(this);
+            var supplierID = $this.data("href");
+            var startDate = $("#startDate").val();
+            var endDate = $("#endDate").val();
+            var url = "statistical-import/" + supplierID;
+
+            if (startDate || endDate) {
+                url += "?";
+                if (startDate) {
+                    url += "start=" + startDate;
+                }
+                if (endDate) {
+                    url += "&end=" + endDate
+                }
+
+            }
+            $(location).attr('href', url);
         });
 
         $(".go_back").click(function() {
@@ -104,17 +120,6 @@
                 $("#startDate").attr("max", endDate);
             }
         });
-
-        // $(".filter_form").submit(function () {
-        //     var startDate = $("#startDate").val();
-        //     var endDate = $("#endDate").val();
-        //     if (startDate || endDate) {
-        //         var params = "?start=" + startDate + "&end=" + endDate;
-        //         window.location.href = window.location.href.split('?')[0] + params;
-        //     } else {
-        //         window.location.reload();
-        //     }
-        // })
     </script>
 </body>
 </html>
