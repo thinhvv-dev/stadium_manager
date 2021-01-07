@@ -29,85 +29,85 @@
             <th>00:00 - 02:00</th>
             <td>Mark</td>
             <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+            <td>mdo</td>
+            <td>mdo</td>
         </tr>
         <tr>
             <th scope="row">02:00 - 04:00</th>
             <td>Mark</td>
             <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+            <td>mdo</td>
+            <td>mdo</td>
         </tr>
         <tr>
             <th scope="row">04:00 - 06:00</th>
             <td>Mark</td>
             <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+            <td>mdo</td>
+            <td>mdo</td>
         </tr>
         <tr>
             <th scope="row">06:00 - 08:00</th>
             <td>Mark</td>
             <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+            <td>mdo</td>
+            <td>mdo</td>
         </tr>
         <tr>
             <th scope="row">08:00 - 10:00</th>
             <td>Mark</td>
             <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+            <td>mdo</td>
+            <td>mdo</td>
         </tr>
         <tr>
             <th scope="row">10:00 - 12:00</th>
             <td>Mark</td>
             <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+            <td>mdo</td>
+            <td>mdo</td>
         </tr>
         <tr>
             <th scope="row">12:00 - 14:00</th>
             <td>Mark</td>
             <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+            <td>mdo</td>
+            <td>mdo</td>
         </tr>
         <tr>
             <th scope="row">14:00 - 16:00</th>
             <td>Mark</td>
             <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+            <td>mdo</td>
+            <td>mdo</td>
         </tr>
         <tr>
             <th scope="row">16:00 - 18:00</th>
             <td>Mark</td>
             <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+            <td>mdo</td>
+            <td>mdo</td>
         </tr>
         <tr>
             <th scope="row">18:00 - 20:00</th>
             <td>Mark</td>
             <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+            <td>mdo</td>
+            <td>mdo</td>
         </tr>
         <tr>
             <th scope="row">20:00 - 22:00</th>
             <td>Mark</td>
             <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+            <td>mdo</td>
+            <td>mdo</td>
         </tr>
         <tr>
             <th scope="row">22:00 - 00:00</th>
             <td>Mark</td>
             <td>Otto</td>
-            <td>@mdo</td>
-            <td>@mdo</td>
+            <td>mdo</td>
+            <td>mdo</td>
         </tr>
         </tbody>
     </table>

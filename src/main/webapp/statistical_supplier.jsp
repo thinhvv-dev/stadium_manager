@@ -23,7 +23,7 @@
                 <button type="button" class="btn btn-outline-secondary go_back">&#8678; Quay lại</button>
             </div>
             <div class="d-flex justify-content-center col-md-9">
-                <h2>THỐNG KÊ NHẬP HÀNG</h2>
+                <h2>THỐNG KÊ NHÀ CUNG CẤP</h2>
             </div>
         </div>
         <div class="row">
@@ -98,7 +98,8 @@
                     url += "start=" + startDate;
                 }
                 if (endDate) {
-                    url += "&end=" + endDate
+                    if (startDate) url += "&";
+                    url += "end=" + endDate;
                 }
 
             }

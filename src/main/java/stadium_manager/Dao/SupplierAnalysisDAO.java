@@ -1,7 +1,5 @@
 package stadium_manager.Dao;
 
-import stadium_manager.Model.Supplier;
-
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -12,7 +10,7 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class SupplierAnalysisDAO extends ConnectJDBC{
+public class SupplierAnalysisDAO extends ConnectJDBC {
     public static List<HashMap<String, String>> supplierByTime(String startTime, String endTime, int userID) {
         List<HashMap<String, String>> supplierList = new ArrayList<>();
 
@@ -22,10 +20,10 @@ public class SupplierAnalysisDAO extends ConnectJDBC{
                 + " and stock.supplierId = supplier.id) as A,"
                 + "(SELECT stockID, sum(quantity) as sum_quantity FROM stadium_manager.import_bill  where 1=1 ";
 
-        if (startTime != null) {
+        if (startTime != null && !startTime.equals("")) {
             query += "and import_bill.date >= '" + startTime +"'";
         }
-        if (endTime != null) {
+        if (endTime != null && !endTime.equals("")) {
             query += "and import_bill.date <= '" + endTime + "'";
         }
         query += " group by stockID) as B where A.stock_id=B.stockID group by supplier_id";
@@ -57,7 +55,7 @@ public class SupplierAnalysisDAO extends ConnectJDBC{
         return supplierList;
     }
 
-    public static List<HashMap<String, String>> importByTime(String startTime, String endTime, String supplierId, int userID){
+    public static List<HashMap<String, String>> importByTime(String startTime, String endTime, String supplierId, int userID) {
         List<HashMap<String, String>> importList = new ArrayList<>();
 
         String query = "select A.supplier_id, B.import_date as import_date, A.supplier_name, B.sum_quantity as total_quantity, sum(A.stock_price*B.sum_quantity) as total_price "
@@ -67,7 +65,7 @@ public class SupplierAnalysisDAO extends ConnectJDBC{
                 + "FROM import_bill  where 1=1 ";
 
         if (startTime != null) {
-            query += "and import_bill.date >= '" + startTime +"' ";
+            query += "and import_bill.date >= '" + startTime + "' ";
         }
         if (endTime != null) {
             query += "and import_bill.date <= '" + endTime + "' ";

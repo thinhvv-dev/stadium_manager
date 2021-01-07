@@ -7,13 +7,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
 
-public class SupplierDAO extends ConnectJDBC implements DAO<Supplier>, DAOWithListID<Supplier> {
+public class SupplierDAO extends ConnectJDBC implements DAO<Supplier> {
     @Override
     public Supplier getByID(int ID) {
         Supplier supplier = new Supplier();
@@ -50,39 +48,6 @@ public class SupplierDAO extends ConnectJDBC implements DAO<Supplier>, DAOWithLi
         String query = "select * from supplier where userID=" + userID;
 
         Connection connection = ConnectJDBC.getConn();
-        try {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(query);
-
-            while (resultSet.next()) {
-                supplierList.add(new Supplier(
-                        resultSet.getInt(1),
-                        resultSet.getString(2),
-                        resultSet.getString(3),
-                        resultSet.getInt(4)
-                        )
-                );
-            }
-
-            statement.close();
-            resultSet.close();
-            connection.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(SupplierDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return supplierList;
-    }
-
-    @Override
-    public List<Supplier> getByListID(List<Integer> ids) {
-        List<Supplier> supplierList = new ArrayList<>();
-
-        String queryParams = ids.stream().map(String::valueOf).collect(Collectors.joining(","));
-        String query = "select * from supplier where id in (" + queryParams + ")";
-
-        Connection connection = ConnectJDBC.getConn();
-
         try {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery(query);

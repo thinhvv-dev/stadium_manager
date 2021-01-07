@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -18,13 +19,8 @@ import java.util.List;
 public class StatisticalImportController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String startDate = null;
-        String endDate = null;
-        if (req.getQueryString() != null) {
-            String[] queryString = req.getQueryString().split("&");
-            startDate = queryString[0].split("=")[1];
-            endDate = queryString[1].split("=")[1];
-        }
+        String startDate = req.getParameter("start");
+        String endDate = req.getParameter("end");
 
         User user = (User) req.getSession().getAttribute("user");
         int userID = user.getID();
@@ -34,6 +30,9 @@ public class StatisticalImportController extends HttpServlet {
         String supplierId = pathParts[1];
 
         List<HashMap<String, String>> importList = SupplierAnalysisDAO.importByTime(startDate, endDate, supplierId, userID);
+
+        HttpSession session = req.getSession();
+        session.setAttribute("pageActive", "analysis");
 
         req.setAttribute("importList", importList);
         req.setAttribute("startDate", startDate);

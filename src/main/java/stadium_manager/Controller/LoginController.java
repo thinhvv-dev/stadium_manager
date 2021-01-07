@@ -32,7 +32,8 @@ public class LoginController extends HttpServlet {
         try {
             User user = UserDAO.authenticate(userName, password);
             if (user.getUserName() == null) {
-                resp.sendRedirect("/login");
+                req.setAttribute("errorMessage", "username or password is incorrect");
+                req.getRequestDispatcher("/login.jsp").forward(req, resp);
             } else {
                 HttpSession session = req.getSession();
                 session.setAttribute("user", user);

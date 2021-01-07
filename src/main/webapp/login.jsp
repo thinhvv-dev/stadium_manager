@@ -22,12 +22,12 @@
                 <label for="inputPassword" class="visually-hidden">Mật khẩu</label>
                 <input type="password" id="inputPassword" class="form-control" name="password" placeholder="Mật khẩu" required="">
             </div>
-            <div class="checkbox mb-3">
-              <label>
-                <input type="checkbox" value="remember-me"> Remember me
-              </label>
-            </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+
+            <span class="text-danger">
+                ${errorMessage}
+            </span>
+
+            <button class="w-100 btn btn-lg btn-primary" type="submit">Đăng nhập</button>
           </form>
     </main>
     <!-- end main -->

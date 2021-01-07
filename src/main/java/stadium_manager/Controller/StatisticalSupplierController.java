@@ -9,6 +9,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
@@ -24,6 +25,10 @@ public class StatisticalSupplierController extends HttpServlet {
         int userID = user.getID();
 
         List<HashMap<String, String>> supplierList = SupplierAnalysisDAO.supplierByTime(startDate, endDate, userID);
+
+        HttpSession session = req.getSession();
+        session.setAttribute("pageActive", "analysis");
+
         req.setAttribute("supplierList", supplierList);
         req.setAttribute("startDate", startDate);
         req.setAttribute("endDate", endDate);

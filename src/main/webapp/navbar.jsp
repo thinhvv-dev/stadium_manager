@@ -15,16 +15,16 @@
             <% if (session.getAttribute("user") == null) { %>
             <ul class="nav justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
+                    <a class="nav-link" href="/login">Đăng nhập</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Sign Up</a>
+                    <a class="nav-link" href="#">Đăng ký</a>
                 </li>
             </ul>
             <% } else { %>
             <ul class="nav justify-content-center">
                 <li class="nav-item">
-                    <a class="nav-link" href="/logout">Logout</a>
+                    <a class="nav-link" href="/logout">Đăng xuất</a>
                 </li>
             </ul>
             <% } %>
@@ -33,7 +33,7 @@
     <div class="border">
         <ul class="nav nav-pills nav-fill justify-content-center">
             <li class="nav-item border">
-                <a class="nav-link active" href="/home">TRANG CHỦ</a>
+                <a class="nav-link <% if (session.getAttribute("pageActive") == "home") { %>active<% } %>" href="/home">TRANG CHỦ</a>
             </li>
             <li class="nav-item border">
                 <a class="nav-link" href="#">ĐẶT SÂN</a>
@@ -42,7 +42,7 @@
                 <a class="nav-link" href="#">NHẬP HÀNG</a>
             </li>
             <li class="nav-item border">
-                <a class="nav-link" href="/statistical-supplier">THỐNG KÊ</a>
+                <a class="nav-link <% if (session.getAttribute("pageActive") == "analysis") { %>active<% } %>" href="/statistical-supplier">THỐNG KÊ</a>
             </li>
         </ul>
     </div>

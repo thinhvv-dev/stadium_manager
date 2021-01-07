@@ -4,11 +4,6 @@
 <head>
     <%@include file="header.jsp"%>
     <title>Quản lý sân bóng mini</title>
-    <style>
-        tbody tr {
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
     <!-- header -->
@@ -33,14 +28,14 @@
                         <div class="row mb-3">
                             <label for="supplier" class="col-sm-4 col-form-label">Nhà cung cấp:</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" value="NCC A" id="supplier" disabled readonly>
+                                <input type="text" class="form-control" value="${supplierName}" id="supplier" disabled readonly>
                             </div>
                             
                         </div>
                         <div class="row mb-3">
-                            <label for="importID" class="col-sm-4 col-form-label">Mã hóa đơn:</label>
+                            <label for="importID" class="col-sm-4 col-form-label">Ngày nhập hàng:</label>
                             <div class="col-sm-8">
-                                <input type="text" class="form-control" id="importID" value="12345" disabled readonly>
+                                <input type="text" class="form-control" id="importID" value="${date}" disabled readonly>
                             </div>
                         </div>
                     </div>
@@ -49,7 +44,7 @@
             </div>
 
             <div class="col-8">
-                <table class="table table-bordered table-hover border">
+                <table class="table table-bordered table-striped border">
                     <thead>
                         <tr class="table-dark">
                             <th style="width:15%" scope="col">ID</th>
@@ -60,90 +55,15 @@
                         </tr>
                     </thead>
                     <tbody>
+                        <c:forEach items="${detailList}" var="detail" varStatus="loop">
                         <tr>
-                            <th>00:00 - 02:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
+                            <th><c:out value="${detail.get('stockID')}"/></th>
+                            <td><c:out value="${detail.get('stockName')}"/></td>
+                            <td><c:out value="${detail.get('quantity')}"/></td>
+                            <td><c:out value="${detail.get('price')}"/></td>
+                            <td><c:out value="${detail.get('total_price')}"/></td>
                         </tr>
-                        <tr>
-                            <th scope="row">02:00 - 04:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">04:00 - 06:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">06:00 - 08:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">08:00 - 10:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">10:00 - 12:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">12:00 - 14:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">14:00 - 16:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">16:00 - 18:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">18:00 - 20:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">20:00 - 22:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                        </tr>
-                        <tr>
-                            <th scope="row">22:00 - 00:00</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                            <td>Otto</td>
-                        </tr>
+                        </c:forEach>
                     </tbody>
                 </table>
               </div>
@@ -156,9 +76,6 @@
 
     <%@include file="footer.jsp"%>
     <script>
-        $("tbody tr").click(function() {
-            $(location).attr('href', 'statistical_import.jsp');
-        });
         $(".go_back").click(function() {
             window.history.back();
         });

@@ -8,10 +8,10 @@ import java.sql.*;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-public class UserDAO extends ConnectJDBC{
-    public static User authenticate (String userName, String password) throws NoSuchAlgorithmException {
+public class UserDAO extends ConnectJDBC {
+    public static User authenticate(String userName, String password) throws NoSuchAlgorithmException {
         User user = new User();
-        String query = "select * from user where username='"+userName+"'";
+        String query = "select * from user where username='" + userName + "'";
 
         Connection connection = ConnectJDBC.getConn();
 
@@ -45,7 +45,7 @@ public class UserDAO extends ConnectJDBC{
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(query);
             preparedStatement.setString(1, "admin");
-            preparedStatement.setString(2, PasswordHash.passwordHashing("password"));
+            preparedStatement.setString(2, PasswordHash.passwordHashing("admin"));
             preparedStatement.executeUpdate();
             connection.close();
             preparedStatement.close();
