@@ -6,18 +6,16 @@ public class Stock {
     private float price;
     private int quantity;
     private int supplierID;
-    private int userId;
 
     public Stock() {
     }
 
-    public Stock(int ID, String name, float price, int quantity, int supplierID, int userId) {
+    public Stock(int ID, String name, float price, int quantity, int supplierID) {
         this.ID = ID;
         this.name = name;
         this.price = price;
         this.quantity = quantity;
         this.supplierID = supplierID;
-        this.userId = userId;
     }
 
     public int getID() {
@@ -60,11 +58,4 @@ public class Stock {
         this.supplierID = supplierID;
     }
 
-    public int getUserId() {
-        return userId;
-    }
-
-    public void setUserId(int userId) {
-        this.userId = userId;
-    }
 }

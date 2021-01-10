@@ -1,6 +1,7 @@
 package stadium_manager.Controller;
 
 import stadium_manager.Dao.SupplierAnalysisDAO;
+import stadium_manager.Model.SupplierAnalysis;
 import stadium_manager.Model.User;
 
 import javax.servlet.RequestDispatcher;
@@ -24,7 +25,7 @@ public class StatisticalSupplierController extends HttpServlet {
         User user = (User) req.getSession().getAttribute("user");
         int userID = user.getID();
 
-        List<HashMap<String, String>> supplierList = SupplierAnalysisDAO.supplierByTime(startDate, endDate, userID);
+        List<SupplierAnalysis> supplierList = SupplierAnalysisDAO.supplierByTime(startDate, endDate, userID);
 
         HttpSession session = req.getSession();
         session.setAttribute("pageActive", "analysis");

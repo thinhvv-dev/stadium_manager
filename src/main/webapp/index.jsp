@@ -21,19 +21,19 @@
         </section>
         <div class="row d-flex justify-content-around mb-3 text-center">
             <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="${pageContext.request.contextPath}/static/image/carousel1.jpeg" alt="">
+                <img class="card-img-top" src="${pageContext.request.contextPath}/static/image/carousel1.jpg" alt="">
                 <div class="card-body">
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab architecto atque beatae consectetur dicta ex iste labore magnam minus mollitia nihil nobis numquam recusandae repellat sapiente suscipit, vel, veniam? Accusantium?</p>
                 </div>
             </div>
             <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="${pageContext.request.contextPath}/static/image/carousel2.jpeg" alt="">
+                <img class="card-img-top" src="${pageContext.request.contextPath}/static/image/carousel2.jpg" alt="">
                 <div class="card-body">
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab architecto atque beatae consectetur dicta ex iste labore magnam minus mollitia nihil nobis numquam recusandae repellat sapiente suscipit, vel, veniam? Accusantium?</p>
                 </div>
             </div>
             <div class="card mb-4 box-shadow">
-                <img class="card-img-top" src="${pageContext.request.contextPath}/static/image/carousel3.jpeg" alt="">
+                <img class="card-img-top" src="${pageContext.request.contextPath}/static/image/carousel3.jpg" alt="">
                 <div class="card-body">
                     <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab architecto atque beatae consectetur dicta ex iste labore magnam minus mollitia nihil nobis numquam recusandae repellat sapiente suscipit, vel, veniam? Accusantium?</p>
                 </div>

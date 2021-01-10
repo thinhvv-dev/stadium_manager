@@ -2,6 +2,7 @@ package stadium_manager.Controller;
 
 import stadium_manager.Dao.ImportBillDAO;
 import stadium_manager.Dao.SupplierDAO;
+import stadium_manager.Model.DetailImportBill;
 import stadium_manager.Model.Supplier;
 import stadium_manager.Model.User;
 
@@ -34,7 +35,7 @@ public class DetailImportController extends HttpServlet {
         Supplier supplier = new SupplierDAO().getByID(Integer.parseInt(supplierId));
         String supplierName = supplier.getName();
 
-        List<HashMap<String, String>> detailList = ImportBillDAO.detailImportByDate(supplierId, date, userID);
+        List<DetailImportBill> detailList = ImportBillDAO.detailImportByDate(supplierId, date, userID);
 
         HttpSession session = req.getSession();
         session.setAttribute("pageActive", "analysis");

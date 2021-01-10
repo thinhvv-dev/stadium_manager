@@ -40,35 +40,4 @@ public class SupplierDAO extends ConnectJDBC implements DAO<Supplier> {
 
         return supplier;
     }
-
-    @Override
-    public List<Supplier> getAll(int userID) {
-        List<Supplier> supplierList = new ArrayList<>();
-
-        String query = "select * from supplier where userID=" + userID;
-
-        Connection connection = ConnectJDBC.getConn();
-        try {
-            Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery(query);
-
-            while (resultSet.next()) {
-                supplierList.add(new Supplier(
-                                resultSet.getInt(1),
-                                resultSet.getString(2),
-                                resultSet.getString(3),
-                                resultSet.getInt(4)
-                        )
-                );
-            }
-
-            statement.close();
-            resultSet.close();
-            connection.close();
-        } catch (SQLException ex) {
-            Logger.getLogger(SupplierDAO.class.getName()).log(Level.SEVERE, null, ex);
-        }
-
-        return supplierList;
-    }
 }

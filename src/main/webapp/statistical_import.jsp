@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <%@include file="header.jsp"%>
-    <title>Quản lý sân bóng mini</title>
+    <title>THỐNG KÊ NHẬP HÀNG</title>
     <style>
         tbody tr {
             cursor: pointer;
@@ -63,10 +63,10 @@
                     </thead>
                     <tbody>
                         <c:forEach items="${importList}" var="import" varStatus="loop">
-                        <tr data-href="<c:out value="${import.get('import_date')}"/>">
-                            <th><c:out value="${import.get('import_date')}"/></th>
-                            <td><c:out value="${import.get('total_quantity')}"/></td>
-                            <td><c:out value="${import.get('total_price')}"/></td>
+                        <tr data-href="<c:out value="${import.getDate()}"/>">
+                            <th><c:out value="${import.getDate()}"/></th>
+                            <td><c:out value="${import.getQuantity()}"/></td>
+                            <td><c:out value="${import.getPrice()}"/></td>
                         </tr>
                         </c:forEach>
                     </tbody>

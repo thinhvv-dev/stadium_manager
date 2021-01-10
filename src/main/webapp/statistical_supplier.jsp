@@ -4,7 +4,7 @@
 <html lang="en">
 <head>
     <%@include file="header.jsp"%>
-    <title>Quản lý sân bóng mini</title>
+    <title>THỐNG KÊ NHÀ CUNG CẤP</title>
     <style>
         tbody tr {
             cursor: pointer;
@@ -65,11 +65,11 @@
                     </thead>
                     <tbody>
                         <c:forEach items="${supplierList}" var="supplier" varStatus="loop">
-                        <tr data-href="<c:out value="${supplier.get('id')}"/>">
-                            <th><c:out value="${supplier.get('code')}"/></th>
-                            <td><c:out value="${supplier.get('name')}"/></td>
-                            <td><c:out value="${supplier.get('total_quantity')}"/></td>
-                            <td><c:out value="${supplier.get('total_price')}"/></td>
+                        <tr data-href="<c:out value="${supplier.getId()}"/>">
+                            <th><c:out value="${supplier.getCode()}"/></th>
+                            <td><c:out value="${supplier.getName()}"/></td>
+                            <td><c:out value="${supplier.getQuantity()}"/></td>
+                            <td><c:out value="${supplier.getPrice()}"/></td>
                         </tr>
                         </c:forEach>
 

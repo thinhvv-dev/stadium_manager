@@ -3,7 +3,7 @@
 <html lang="en">
 <head>
     <%@include file="header.jsp"%>
-    <title>Quản lý sân bóng mini</title>
+    <title>CHI TIẾT HÓA ĐƠN</title>
 </head>
 <body>
     <!-- header -->
@@ -57,11 +57,11 @@
                     <tbody>
                         <c:forEach items="${detailList}" var="detail" varStatus="loop">
                         <tr>
-                            <th><c:out value="${detail.get('stockID')}"/></th>
-                            <td><c:out value="${detail.get('stockName')}"/></td>
-                            <td><c:out value="${detail.get('quantity')}"/></td>
-                            <td><c:out value="${detail.get('price')}"/></td>
-                            <td><c:out value="${detail.get('total_price')}"/></td>
+                            <th><c:out value="${detail.getId()}"/></th>
+                            <td><c:out value="${detail.getName()}"/></td>
+                            <td><c:out value="${detail.getQuantity()}"/></td>
+                            <td><c:out value="${detail.getPrice()}"/></td>
+                            <td><c:out value="${detail.getTotalPrice()}"/></td>
                         </tr>
                         </c:forEach>
                     </tbody>

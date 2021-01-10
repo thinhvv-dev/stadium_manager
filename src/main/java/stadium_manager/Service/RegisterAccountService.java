@@ -6,6 +6,6 @@ import java.security.NoSuchAlgorithmException;
 
 public class RegisterAccountService {
     public static void main(String[] args) throws NoSuchAlgorithmException {
-        UserDAO.registerAccount();
+        UserDAO.registerAccount("admin", "password");
     }
 }

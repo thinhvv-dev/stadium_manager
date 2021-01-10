@@ -38,19 +38,30 @@ public class UserDAO extends ConnectJDBC {
         return user;
     }
 
-    public static void registerAccount() throws NoSuchAlgorithmException {
+    public static User registerAccount(String username, String password) throws NoSuchAlgorithmException {
+        User user = new User();
         Connection connection = ConnectJDBC.getConn();
         String query = "Insert into user(username, password) values(?, ?)";
 
         try {
-            PreparedStatement preparedStatement = connection.prepareStatement(query);
-            preparedStatement.setString(1, "admin");
-            preparedStatement.setString(2, PasswordHash.passwordHashing("admin"));
-            preparedStatement.executeUpdate();
+            if (!username.isEmpty() && !password.isEmpty()) {
+                PreparedStatement preparedStatement = connection.prepareStatement(query);
+                preparedStatement.setString(1, username);
+                preparedStatement.setString(2, PasswordHash.passwordHashing(password));
+                preparedStatement.executeUpdate();
+
+                user.setUserName(username);
+                user.setPassword(PasswordHash.passwordHashing(password));
+
+                preparedStatement.close();
+            }
+
             connection.close();
-            preparedStatement.close();
+
         } catch (SQLException ex) {
             Logger.getLogger(UserDAO.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        return user;
     }
 }

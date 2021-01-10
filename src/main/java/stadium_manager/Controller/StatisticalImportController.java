@@ -1,6 +1,7 @@
 package stadium_manager.Controller;
 
 import stadium_manager.Dao.SupplierAnalysisDAO;
+import stadium_manager.Model.ImportSupplier;
 import stadium_manager.Model.User;
 
 import javax.servlet.RequestDispatcher;
@@ -29,7 +30,7 @@ public class StatisticalImportController extends HttpServlet {
         String[] pathParts = pathInfo.split("/");
         String supplierId = pathParts[1];
 
-        List<HashMap<String, String>> importList = SupplierAnalysisDAO.importByTime(startDate, endDate, supplierId, userID);
+        List<ImportSupplier> importList = SupplierAnalysisDAO.importByTime(startDate, endDate, supplierId, userID);
 
         HttpSession session = req.getSession();
         session.setAttribute("pageActive", "analysis");
